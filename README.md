@@ -12,11 +12,8 @@
 
 > php artisan make:model Counter -m
 > php artisan make:factory CounterFactory
-
-# /app/database/factories/CounterFactory
-
-# /app/database/seeders/DatabaseSeeder
-
+> /app/database/factories/CounterFactory
+> /app/database/seeders/DatabaseSeeder
 > php artisan db:seed
 
 ## Products
@@ -40,3 +37,8 @@
 
 > php artisan make:model InvoiceItem -m
 > php artisan make:factory InvoiceItemFactory
+
+### Frontend
+
+> npm install vue-loader@next vue@3.2.20 vue-router@next
+> npm install @vitejs/plugin-vue --force
