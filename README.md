@@ -42,3 +42,7 @@
 
 > npm install vue-loader@next vue@3.2.20 vue-router@next
 > npm install @vitejs/plugin-vue --force
+
+# Template css
+
+> https://github.com/share-tutorials-dev/invoice-html-css
