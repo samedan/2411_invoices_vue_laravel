@@ -43,7 +43,9 @@
                         <input
                             class="table--search--input"
                             type="text"
-                            placeholder="Search invoice"
+                            v-model="searchInvoice"
+                            @keyup="search()"
+                            placeholder="Search invoice ID number"
                         />
                     </div>
                 </div>
@@ -88,6 +90,7 @@
 import { onMounted, ref } from "vue";
 
 let invoices = ref([]);
+let searchInvoice = ref([]);
 
 onMounted(async () => {
     getInvoices();
@@ -96,6 +99,14 @@ onMounted(async () => {
 const getInvoices = async () => {
     let response = await axios.get("/api/get_all_invoices");
     console.log("response", response);
+    invoices.value = response.data.invoices;
+};
+
+const search = async () => {
+    let response = await axios.get(
+        "/api/search_invoice?s=" + searchInvoice.value
+    );
+    console.log("response", response.data.invoices);
     invoices.value = response.data.invoices;
 };
 </script>
