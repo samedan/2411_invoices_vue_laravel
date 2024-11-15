@@ -28,3 +28,8 @@ Route::get('/get_all_invoices', [
 Route::get('/search_invoice', [
     InvoiceController::class, 'search_invoice'
 ]);
+
+// GET Form New Invoice
+Route::get('/create_invoice', [
+    InvoiceController::class, 'create_invoice'
+]);

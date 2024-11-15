@@ -7,7 +7,9 @@
                     <h2 class="invoice__title">Invoices</h2>
                 </div>
                 <div>
-                    <a class="btn btn-secondary"> New Invoice </a>
+                    <a class="btn btn-secondary" @click="newInvoice">
+                        New Invoice
+                    </a>
                 </div>
             </div>
 
@@ -60,21 +62,24 @@
                 </div>
 
                 <!-- item 1 -->
-                <div
-                    class="table--items"
-                    v-for="item in invoices"
-                    :key="item.id"
-                    v-if="invoices.length > 0"
-                >
-                    <a href="#" class="table--items--transactionId"
-                        >#{{ item.id }}</a
+                <div v-if="invoices.length > 0">
+                    <div
+                        class="table--items"
+                        v-for="item in invoices"
+                        :key="item.id"
                     >
-                    <p>{{ item.date }}</p>
-                    <p>{{ item.number }}</p>
-                    <p v-if="item.customer">{{ item.customer.firstname }}</p>
-                    <p v-else>No recorded name</p>
-                    <p>{{ item.due_date }}</p>
-                    <p>$ {{ item.total }}</p>
+                        <a href="#" class="table--items--transactionId"
+                            >#{{ item.id }}</a
+                        >
+                        <p>{{ item.date }}</p>
+                        <p>{{ item.number }}</p>
+                        <p v-if="item.customer">
+                            {{ item.customer.firstname }}
+                        </p>
+                        <p v-else>No recorded name</p>
+                        <p>{{ item.due_date }}</p>
+                        <p>$ {{ item.total }}</p>
+                    </div>
                 </div>
                 <div class="table--items" v-else>
                     <p>Invoice not found</p>
@@ -88,7 +93,9 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 let invoices = ref([]);
 let searchInvoice = ref([]);
 
@@ -108,5 +115,11 @@ const search = async () => {
     );
     console.log("response", response.data.invoices);
     invoices.value = response.data.invoices;
+};
+
+const newInvoice = async () => {
+    let form = await axios.get("/api/create_invoice");
+    console.log("form", form.data);
+    router.push("/invoice/new");
 };
 </script>

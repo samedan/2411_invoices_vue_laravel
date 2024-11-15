@@ -54,3 +54,15 @@
 > InvoiceController : $invoices = Invoice::with('customer')->orderBy('id', 'DESC')->get();
 > /resources/js/components/invoices/index.vue -> getInvoices()
 > Invoice.php : customer(){ return $this->belongsTo(Customer::class);}
+
+### Search Invoice
+
+> index.vue ->search()
+> InvoiceController -> search_invoice()
+
+### New Invoice
+
+> InvoiceController -> defaultOnvoiceFormData -> create_invoice()
+> /resources/js/components/invoices/new.vue -> Form & Default Data
+>
+> > ![NewFormInvoice](https://github.com/samedan/2411_invoices_vue_laravel/blob/main/public/images/printscreen2.jpg)
