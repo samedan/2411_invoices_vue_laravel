@@ -46,3 +46,11 @@
 # Template css
 
 > https://github.com/share-tutorials-dev/invoice-html-css
+
+### Show Invoices
+
+> ![Invoices](https://github.com/samedan/2411_invoices_vue_laravel/blob/main/public/images/printscreen1.jpg)
+
+> InvoiceController : $invoices = Invoice::with('customer')->orderBy('id', 'DESC')->get();
+> /resources/js/components/invoices/index.vue -> getInvoices()
+> Invoice.php : customer(){ return $this->belongsTo(Customer::class);}
