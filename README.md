@@ -2,6 +2,10 @@
 
 > https://youtu.be/_MZ1B5F2PFc?si=uJ_oGuAcpoya-GUB&t=2648
 
+# Source Playlist
+
+> https://www.youtube.com/watch?v=wN5c9HuxdS4&list=PLaXLjtW0Px1r6M2ODEz2Mcj3MPwSViUYT&index=7
+
 ### This Git
 
 > https://github.com/samedan/2411_invoices_vue_laravel
