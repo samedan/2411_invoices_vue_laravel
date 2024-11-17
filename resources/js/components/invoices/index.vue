@@ -68,7 +68,10 @@
                         v-for="item in invoices"
                         :key="item.id"
                     >
-                        <a href="#" class="table--items--transactionId"
+                        <a
+                            href="#"
+                            @click="onShow(item.id)"
+                            class="table--items--transactionId"
                             >#{{ item.id }}</a
                         >
                         <p>{{ item.date }}</p>
@@ -121,5 +124,9 @@ const newInvoice = async () => {
     let form = await axios.get("/api/create_invoice");
     console.log("form", form.data);
     router.push("/invoice/new");
+};
+
+const onShow = (id) => {
+    router.push("/invoice/show/" + id);
 };
 </script>

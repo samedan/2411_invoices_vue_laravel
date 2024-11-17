@@ -52,7 +52,13 @@ Route::get('/products', [
 ]);
 
 
-//// /
+///// INVOICES ///////
+// POST Invoice
 Route::post('/add_invoice', [
     InvoiceController::class, 'add_invoice'
+]);
+
+// GET One Invoice
+Route::get('/show_invoice/{id}', [
+    InvoiceController::class, 'show_invoice'
 ]);

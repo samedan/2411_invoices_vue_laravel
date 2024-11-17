@@ -71,6 +71,7 @@ class InvoiceController extends Controller
     }
     
 
+    // POST New Invoice
     public function add_invoice(Request $request) {
         $invoiceItem = $request->input('invoice_item');
         $invoiceData['sub_total'] = $request->input('sub_total');
@@ -94,6 +95,14 @@ class InvoiceController extends Controller
             InvoiceItem::create($itemData);
 
         }
+    }
+
+    // GET One invoice
+    public function show_invoice($id){
+        $invoice = Invoice::with(['customer', 'invoice_items.product'])->find($id);
+        return response()->json([
+            'invoice' => $invoice        
+            ], 200);
     }
 
 }

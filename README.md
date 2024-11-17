@@ -6,6 +6,10 @@
 
 > https://www.youtube.com/watch?v=wN5c9HuxdS4&list=PLaXLjtW0Px1r6M2ODEz2Mcj3MPwSViUYT&index=7
 
+# Template css
+
+> https://github.com/share-tutorials-dev/invoice-html-css
+
 ### This Git
 
 > https://github.com/samedan/2411_invoices_vue_laravel
@@ -47,10 +51,6 @@
 > npm install vue-loader@next vue@3.2.20 vue-router@next
 > npm install @vitejs/plugin-vue --force
 
-# Template css
-
-> https://github.com/share-tutorials-dev/invoice-html-css
-
 ### Show Invoices
 
 > ![Invoices](https://github.com/samedan/2411_invoices_vue_laravel/blob/main/public/images/printscreen1.jpg)
@@ -70,3 +70,18 @@
 > /resources/js/components/invoices/new.vue -> Form & Default Data
 >
 > > ![NewFormInvoice](https://github.com/samedan/2411_invoices_vue_laravel/blob/main/public/images/printscreen2.jpg)
+
+### Show One Invoice
+
+# LoadItems on Invoice -> Invoice.php model
+
+> public function invoice_items() {return $this->hasMany(InvoiceItem::class); }
+
+# LoadProducts on Invoice -> InvoiceItem.php model
+
+> public function product() {return $this->belongsTo(Product::class); }
+
+# InvoiceController, Customees & InvoiceItems & InvoiceProducts
+
+> show_invoice($id){$invoice = Invoice::with(['customer', 'invoice_items.product'])->find($id);}
+> /resources/js/components/invoices/show.vue -> onMounted(async () => {getInvoice();});
