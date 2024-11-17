@@ -173,7 +173,7 @@
                             :key="item.id"
                             style="
                                 display: grid;
-                                grid-template-columns: 30px 350px 15px;
+                                grid-template-columns: 30px 150px 15px;
                                 align-items: center;
                                 padding-bottom: 15px;
                             "
@@ -285,11 +285,15 @@ const removeItem = (i) => {
 
 const calculateSubTotal = () => {
     let total = 0;
-    let subTotal = 0;
     listCart.value.map((data) => {
-        subTotal = total + data.quantity * data.unit_price;
+        total = total + data.quantity * data.unit_price;
     });
-    return subTotal;
+    console.log("listCart");
+    console.log(listCart);
+    console.log("subTotal");
+    console.log(total);
+
+    return total;
 };
 
 const calculateTotal = () => {
@@ -330,7 +334,7 @@ const onSave = () => {
         // console.log(formData);
 
         listCart.value = [];
-        // router.push("/");
+        router.push("/");
     } else {
         console.log("oNSave error");
     }

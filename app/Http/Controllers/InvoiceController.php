@@ -35,7 +35,7 @@ class InvoiceController extends Controller
         }
     }
 
-    // GET New Form invoice
+    // GET New Default Form invoice
     public function create_invoice(Request $request) {
         $counter = Counter::where('key', 'invoice')->first();
         $random = Counter::where('key', 'invoice')->first();
@@ -66,7 +66,7 @@ class InvoiceController extends Controller
                 ]
             ]
         ];
-        dd($formData);
+        // dd($formData);
         return response()->json($formData);
     }
     
