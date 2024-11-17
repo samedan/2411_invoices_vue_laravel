@@ -62,3 +62,11 @@ Route::post('/add_invoice', [
 Route::get('/show_invoice/{id}', [
     InvoiceController::class, 'show_invoice'
 ]);
+// GET Form EDIT  Invoice
+Route::get('/edit_invoice/{id}', [
+    InvoiceController::class, 'edit_invoice'
+]);
+// DELETE Form EDIT  Invoice
+Route::get('/delete_invoice_items/{id}', [
+    InvoiceController::class, 'delete_invoice_items'
+]);
