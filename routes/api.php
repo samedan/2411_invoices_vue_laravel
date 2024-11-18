@@ -70,3 +70,7 @@ Route::get('/edit_invoice/{id}', [
 Route::get('/delete_invoice_items/{id}', [
     InvoiceController::class, 'delete_invoice_items'
 ]);
+// UPDATE EDIT  Invoice
+Route::post('/update_invoice/{id}', [
+    InvoiceController::class, 'update_invoice'
+]);

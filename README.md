@@ -68,8 +68,8 @@
 
 > InvoiceController -> defaultOnvoiceFormData -> create_invoice()
 > /resources/js/components/invoices/new.vue -> Form & Default Data
->
-> > ![NewFormInvoice](https://github.com/samedan/2411_invoices_vue_laravel/blob/main/public/images/printscreen2.jpg)
+
+> ![NewFormInvoice](https://github.com/samedan/2411_invoices_vue_laravel/blob/main/public/images/printscreen2.jpg)
 
 ### Show One Invoice
 
@@ -85,3 +85,9 @@
 
 > show_invoice($id){$invoice = Invoice::with(['customer', 'invoice_items.product'])->find($id);}
 > /resources/js/components/invoices/show.vue -> onMounted(async () => {getInvoice();});
+
+### EDIT Invoice
+
+> edit.vue
+> InvoiceController -> public function update_invoice()
+> ![EditInvoice](https://github.com/samedan/2411_invoices_vue_laravel/blob/main/public/images/printscreen3.jpg)
