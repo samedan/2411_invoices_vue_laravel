@@ -113,7 +113,7 @@ class InvoiceController extends Controller
             ], 200);
     }
 
-    // DELETE Invoice Item
+    // DELETE Item in Invoice 
     public function delete_invoice_items ($id){
         $invoiceItem = InvoiceItem::findOrFail($id);
         $invoiceItem->delete();
@@ -145,4 +145,14 @@ class InvoiceController extends Controller
             InvoiceItem::create($itemData);
         }
     }
+
+    // DELETE Invoice
+    public function delete_invoice($id){
+        $invoice = Invoice::findOrFail(($id));
+        $invoice->invoice_items()->delete();
+        $invoice->delete();
+        return response()->json(['success' => 'Item deleted'], 200);
+    }
+
+
 }

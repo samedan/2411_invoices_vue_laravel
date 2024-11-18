@@ -74,3 +74,7 @@ Route::get('/delete_invoice_items/{id}', [
 Route::post('/update_invoice/{id}', [
     InvoiceController::class, 'update_invoice'
 ]);
+// DELETE  Invoice
+Route::get('/delete_invoice/{id}', [
+    InvoiceController::class, 'delete_invoice'
+]);
